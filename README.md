@@ -88,7 +88,7 @@ This checks unitarity, superposition, non-neighbor MS entanglement, and computat
 - **Ion chain modes** — COM & stretch (\(\omega_\mathrm{stretch}=\sqrt{3}\,\omega_z\)) from standard linear Paul-trap theory  
 - Built for **Qollab × IonQ Global Quantum Hackathon 2026**  
 
-Author: Emmanuel Aroso (Qiskit Global Summer School 2026 — Quantum Excellence)
+Author: Emmanuel Aroso ([QGSS 2026 — Quantum Excellence](https://www.credly.com/badges/0caa25ae-980a-4d27-95e3-7dd77365abd2/))
 
 ## License
 
