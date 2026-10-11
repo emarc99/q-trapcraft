@@ -44,8 +44,6 @@ Pressing **Run** on Qollab submits **exactly one** circuit job (Mission 3 demo +
 
 ## How to run on Qollab
 
-**Live project:** [TrapCraft: Trapped-Ion Laser Lab](https://qollab.xyz/u/emarc/trapcraft-trapped-ion-laser-la)
-
 1. Open the link → **Run on Qollab** (or Code → **Run Project** → **Run**).  
 2. In **Select QPU**, pick a free simulator:
    - **Built-in simulator (24q)** — Ideal, Free  
