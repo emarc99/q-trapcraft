@@ -44,48 +44,21 @@ Pressing **Run** on Qollab submits **exactly one** circuit job (Mission 3 demo +
 
 ## How to run on Qollab
 
-### Create the project
+**Live project:** [TrapCraft: Trapped-Ion Laser Lab](https://qollab.xyz/u/emarc/trapcraft-trapped-ion-laser-la)
 
-1. Sign in at [qollab.xyz](https://qollab.xyz) with the captain email.  
-2. **New Project** and fill in:
-   - **Title:** `TrapCraft: Trapped-Ion Laser Lab`
-   - **Description (≤240 chars):** interactive Paul-trap lab with IonQ-native GPI/GPI2/MS (turns), phonon-bus entanglement, 3 missions, Qiskit export, one IonQ-safe Run  
-   - **Template:** leave empty  
-   - **Project shape:** **Upload your own files** (not blank Python / JS starters)  
-3. Upload this repo as a **folder** or **GitHub Download ZIP**. Qollab unwraps a single top-level folder automatically.  
-4. Optional: set the project thumbnail to [`assets/trapcraft-qollab-thumbnail.jpg`](assets/trapcraft-qollab-thumbnail.jpg).  
-5. Confirm the file tree has top-level `index.html` and `main.js` (that makes it a JS / Qiskit project). The top-level `README.md` becomes the Project Card write-up.
+1. Open the link → **Run on Qollab** (or Code → **Run Project** → **Run**).  
+2. In **Select QPU**, pick a free simulator:
+   - **Built-in simulator (24q)** — Ideal, Free  
+   - or **IonQ Aria 1 (25q)** — Noise model, Free  
+3. Press **Run**. TrapCraft performs **exactly one** `backend.run` (IonQ one-job rule).
 
-### Select QPU and Run
+**After Run you should see** the lab UI above the console, native-gate checks, three mission **PASS** lines, and GHZ counts dominated by `00000` and `00111` (≈50/50 on an ideal run).
 
-1. Open **Code** → **Run Project** → **Run** (or **Run on Qollab**).  
-2. In **Select QPU**, prefer:
-   - **Built-in simulator (24q)** — Ideal, Free (first check)  
-   - or **IonQ Aria 1 (25q)** — Noise model, Free (trapped-ion flavored)  
-3. Skip **Quantum Computer** rows unless you intentionally want to spend credits. Free **Remotely Run Simulators** do not need credits.  
-4. Press **Run** in the dialog. TrapCraft performs **exactly one** `backend.run` (IonQ one-job rule).
+**Interactive lab** (Statevector only — does not spend another IonQ job):
 
-### What you should see after Run
-
-- Lab UI above the console (trap viewport, laser controls, missions, export).  
-- **Run results** with native-gate checks, three mission **PASS** lines, and GHZ shot counts dominated by `00000` and `00111` (≈50/50 on a good ideal run).
-
-### Try the interactive lab (does not spend a second IonQ job)
-
-1. **Mission 1:** ion 0 selected, φ = 0 → **GPI2** → **Check mission** → PASS  
-2. **Mission 2:** **Clear** → Shift+click ions 1 and 4 → **MS entangle** → **Check mission** → PASS  
-3. **Mission 3:** **Apply GHZ recipe** → **Check mission** → PASS · optional **Copy** export  
-
-Mission checks use exact Qiskit **Statevector** math only.
-
-### Publish / submit
-
-1. **Publish** in the project header.  
-2. Set **Visibility** to the **Public** option that makes this version the default.  
-3. Open the project in a private window to confirm others can see it.  
-4. Record a short walkthrough if required by the hackathon checklist.
-
-**Limits respected:** IonQ remote backends allow one `backend.run` per Run; this project is built for that.
+1. **Mission 1:** ion 0, φ = 0 → **GPI2** → **Check mission**  
+2. **Mission 2:** **Clear** → Shift+click ions 1 and 4 → **MS entangle** → **Check mission**  
+3. **Mission 3:** **Apply GHZ recipe** → **Check mission** · optional **Copy** export
 
 ## Native gates (turns)
 
