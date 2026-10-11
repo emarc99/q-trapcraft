@@ -64,13 +64,28 @@ def run_demo(backend, shots: int = 512, num_ions: int = NUM_IONS) -> dict[str, A
     # Normalize counts to plain dict[str,int]
     counts_dict = {str(k): int(v) for k, v in dict(counts).items()}
 
+    # Flatten for reliable JS .toJs() conversion on Qollab / Pyodide
+    flat_checks = []
+    for item in mission_checks:
+        flat_checks.append(
+            {
+                "mission_id": int(item["mission_id"]),
+                "passed": bool(item["passed"]),
+                "score": float(item["score"]),
+                "detail": str(item["detail"]),
+                "num_ops": int(item["num_ops"]),
+            }
+        )
+
     return {
-        "shots": shots,
-        "num_ions": num_ions,
-        "gate_checks": gate_checks,
-        "mission_checks": mission_checks,
+        "shots": int(shots),
+        "num_ions": int(num_ions),
+        "gate_checks": {str(k): bool(v) for k, v in gate_checks.items()},
+        "mission_checks": flat_checks,
         "counts": counts_dict,
-        "demo": "Mission 3 GHZ sequence (GPI2 + MS + MS) measured on IonQ/local backend",
+        "demo": (
+            "Mission 3 native GHZ (H + MS-CNOTs) measured on the selected backend"
+        ),
         "note": (
             "Interactive mission checks use exact Qiskit Statevector math. "
             "This Run performs exactly one backend.run (IonQ one-job rule)."
