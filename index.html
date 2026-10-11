@@ -1,0 +1,77 @@
+<div id="app" class="app">
+  <header class="top">
+    <div class="brand">
+      <p class="brand-mark">TrapCraft</p>
+      <p class="brand-sub">Trapped-ion lab · IonQ natives · Qollab × IonQ</p>
+    </div>
+    <p class="lede">
+      Drag Raman beams onto <strong>¹⁷¹Yb⁺</strong> ions, fire
+      <strong>GPI / GPI2 / MS</strong> (angles in <em>turns</em>), and feel the
+      phonon bus carry entanglement.
+    </p>
+  </header>
+
+  <section class="stage" aria-label="Paul trap viewport">
+    <canvas id="trap-canvas"></canvas>
+    <div class="stage-caption">
+      Linear RF Paul trap · Coulomb equilibrium spacing · click ion · Shift+click multi-target
+    </div>
+  </section>
+
+  <section class="controls">
+    <div class="panel">
+      <h2>Laser controls</h2>
+      <p class="panel-note">Phases &amp; MS angle use IonQ <strong>turns</strong> (1 turn = 2π).</p>
+      <div class="row">
+        <label>φ <span id="phi-val">0.00</span> turns
+          <input id="phi" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label>MS θ <span id="theta-val">0.25</span> turns
+          <input id="theta" type="range" min="0" max="0.25" step="0.01" value="0.25" />
+        </label>
+      </div>
+      <div class="btn-row">
+        <button id="btn-gpi2" type="button">GPI2 (π/2)</button>
+        <button id="btn-gpi" type="button">GPI (π)</button>
+        <button id="btn-ms" type="button">MS entangle</button>
+        <button id="btn-h" type="button" class="ghost">Native H</button>
+        <button id="btn-cnot" type="button" class="ghost">Native CNOT</button>
+        <button id="btn-undo" type="button" class="ghost">Undo</button>
+        <button id="btn-clear" type="button" class="ghost">Clear</button>
+      </div>
+      <p id="selection-label" class="status">Selected ion(s): 0</p>
+      <ol id="pulse-log" class="pulse-log"></ol>
+    </div>
+
+    <div class="panel">
+      <h2>Guided missions</h2>
+      <div id="mission-list" class="mission-list"></div>
+      <div class="btn-row">
+        <button id="btn-check" type="button">Check mission (Statevector)</button>
+        <button id="btn-ghz" type="button" class="ghost">Apply GHZ recipe</button>
+        <button id="btn-solution" type="button" class="ghost">Load solution</button>
+      </div>
+      <pre id="mission-result" class="result" aria-live="polite"></pre>
+    </div>
+
+    <div class="panel">
+      <h2>Qiskit export</h2>
+      <p class="panel-note">Copy-paste Python using IonQ native gates (turns).</p>
+      <div class="btn-row">
+        <button id="btn-export" type="button">Refresh export</button>
+        <button id="btn-copy" type="button" class="ghost">Copy</button>
+      </div>
+      <textarea id="export-code" readonly rows="12" spellcheck="false"></textarea>
+    </div>
+  </section>
+
+  <section class="panel results-panel">
+    <h2>Run results</h2>
+    <p class="panel-note">
+      Press <strong>Run</strong> on Qollab once. Interactive checks use exact Qiskit
+      Statevector math; the Run path performs <strong>one</strong> <code>backend.run</code>
+      (IonQ one-job rule) measuring the Mission&nbsp;3 GHZ demo.
+    </p>
+    <pre id="run-result" class="result">Waiting for Run…</pre>
+  </section>
+</div>
